@@ -7,7 +7,9 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header><div class="brand"><b>GM</b><div><strong>GROWTH MASTER</strong><small>Instagram Growth Platform</small></div></div></header>
+<header>
+  <div class="brand"><b>GM</b><div><strong>GROWTH MASTER</strong><small>Instagram Growth Platform</small></div></div>
+</header>
 
 <section class="hero">
   <div class="biglogo">GM</div>
@@ -19,58 +21,77 @@
 <section id="services">
 <h2>Our Services</h2>
 <div class="cards">
-<button onclick="openOrder('Instagram Like')">❤️<h3>Instagram Like</h3><p>Post/Reel link + quantity</p></button>
-<button onclick="openOrder('Instagram Views')">👁️<h3>Instagram Views</h3><p>Post/Reel link + quantity</p></button>
-<button onclick="openOrder('Instagram Followers')">👤<h3>Instagram Followers</h3><p>Username + profile link + quantity</p></button>
-<button onclick="document.querySelector('#order').scrollIntoView({behavior:'smooth'})">📦<h3>Order Status</h3><p>Check your Order ID</p></button>
+  <button onclick="openOrder('Instagram Like')">❤️<h3>Instagram Like</h3><p>Post/Reel link + quantity</p></button>
+  <button onclick="openOrder('Instagram Views')">👁️<h3>Instagram Views</h3><p>Post/Reel link + quantity</p></button>
+  <button onclick="openOrder('Instagram Followers')">👤<h3>Instagram Followers</h3><p>Username + profile link + quantity</p></button>
+  <button onclick="document.querySelector('#statusSection').scrollIntoView({behavior:'smooth'})">📦<h3>Order Status</h3><p>Check your Order ID</p></button>
 </div>
 </section>
 
 <section id="order">
 <h2>Place Order</h2>
 <p id="hint">Select a service above.</p>
+
 <form onsubmit="placeOrder(event)">
-<label>Service</label>
-<select id="service" onchange="updateForm()">
-<option>Instagram Like</option>
-<option>Instagram Views</option>
-<option>Instagram Followers</option>
-</select>
+  <label>Service</label>
+  <select id="service" onchange="updateForm()">
+    <option>Instagram Like</option>
+    <option>Instagram Views</option>
+    <option>Instagram Followers</option>
+  </select>
 
-<div id="linkBox">
-<label>Instagram Post / Reel Link</label>
-<input id="target" type="url" placeholder="https://www.instagram.com/..." required>
-</div>
+  <div id="linkBox">
+    <label>Instagram Post / Reel Link</label>
+    <input id="target" type="url" placeholder="https://www.instagram.com/..." required>
+  </div>
 
-<div id="userBox" class="hide">
-<label>Instagram Username</label>
-<input id="user" type="text" placeholder="@username">
-</div>
+  <div id="userBox" class="hide">
+    <label>Instagram Username</label>
+    <input id="user" type="text" placeholder="@username">
+  </div>
 
-<div id="profileBox" class="hide">
-<label>Instagram Profile Link</label>
-<input id="profile" type="url" placeholder="https://www.instagram.com/username">
-</div>
+  <div id="profileBox" class="hide">
+    <label>Instagram ID / Profile Link</label>
+    <input id="profile" type="url" placeholder="https://www.instagram.com/username">
+  </div>
 
-<div class="price-line">
-<span id="rateText">Price: ₹5 per 100 likes</span>
-</div>
+  <div class="price-line"><span id="rateText">Price: ₹5 per 100 likes</span></div>
 
-<label id="qlabel">Quantity of Likes</label>
-<input id="qty" type="number" min="1" step="1" placeholder="Enter quantity" required oninput="calculatePrice()">
+  <label id="qlabel">Quantity of Likes</label>
+  <input id="qty" type="number" min="1" step="1" placeholder="Enter quantity" required oninput="calculatePrice()">
 
-<div class="total">
-<span>Total Price</span>
-<strong id="totalPrice">₹0</strong>
-</div>
+  <div class="total">
+    <span>Total Price</span>
+    <strong id="totalPrice">₹0</strong>
+  </div>
 
-<button class="btn full" type="submit">Submit Order</button>
+  <button class="btn full" type="submit">Submit Order</button>
 </form>
+
+<div id="paymentBox" class="payment-box hide">
+  <h2>💳 Complete Payment</h2>
+  <p>Pay the exact amount shown below using the PhonePe QR.</p>
+  <div class="pay-amount">Pay: <strong id="payAmount">₹0</strong></div>
+
+  <div class="qr-wrap">
+    <img src="phonepe-qr.jpg" alt="PhonePe QR Scanner" onerror="this.style.display='none';document.getElementById('qrMissing').style.display='block';">
+    <div id="qrMissing" class="qr-missing">
+      <strong>PhonePe QR Scanner</strong>
+      <span>Upload your QR image as <b>phonepe-qr.png</b></span>
+    </div>
+  </div>
+
+  <label>Transaction ID / UTR</label>
+  <input id="transactionId" type="text" placeholder="Enter PhonePe Transaction ID / UTR" autocomplete="off">
+
+  <button class="btn full" type="button" onclick="confirmPayment()">Confirm Payment</button>
+  <p class="note">Demo website: Transaction ID is collected here; payment verification requires a real payment gateway/backend.</p>
+</div>
 
 <div id="result"></div>
 </section>
 
-<section class="status">
+<section id="statusSection" class="status">
 <h2>Check Order Status</h2>
 <input id="oid" placeholder="Enter Order ID">
 <button class="btn" onclick="checkOrder()">Check Status</button>
@@ -87,4 +108,4 @@
 <footer>© 2026 GROWTH MASTER</footer>
 <script src="script.js"></script>
 </body>
-  </html>
+      </html>
