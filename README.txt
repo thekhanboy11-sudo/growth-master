@@ -1,14 +1,10 @@
-# GROWTH MASTER Website
+GROWTH MASTER Website V3
+Pricing:
+- Likes: ₹5 per 100 likes
+- Views: ₹4 per 1,000 views
+- Followers: ₹150 per 1,000 followers
 
-## Free hosting
-This is a static website and can be hosted for free on GitHub Pages, Netlify, or Vercel.
-
-## Before publishing
-1. Put your actual Android APK in this folder and name it `growth-master.apk`.
-2. Replace `your-email@example.com` in `index.html` with your support email.
-3. The Order Status section is currently demo-only. For live orders, connect it to your backend/database/API.
-
-## Main files
-- index.html
-- style.css
-- script.js
+The price updates automatically when quantity changes.
+Submit Order creates a demo Order ID. Real order processing/payment/live status requires a backend/API.
+Upload index.html, style.css and script.js to the GitHub repository root.
+For APK download, upload the actual APK as growth-master.apk.
