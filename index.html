@@ -1,82 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="GROWTH MASTER - Instagram services and order status">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GROWTH MASTER</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="header">
-  <div class="brand">
-    <div class="logo">GM</div>
-    <div><h1>GROWTH MASTER</h1><span>Instagram Growth Platform</span></div>
-  </div>
-</header>
+<header><div class="brand"><b>GM</b><div><strong>GROWTH MASTER</strong><small>Instagram Growth Platform</small></div></div></header>
 
-<main>
-  <section class="hero">
-    <div class="hero-logo">GM</div>
-    <h2>Grow Your Instagram</h2>
-    <p>Choose a service and get started with GROWTH MASTER.</p>
-    <a class="btn primary" href="#services">Explore Services</a>
-  </section>
+<section class="hero">
+  <div class="biglogo">GM</div>
+  <h1>Grow Your Instagram</h1>
+  <p>Choose a service and place your order.</p>
+  <a class="btn" href="#services">Get Started</a>
+</section>
 
-  <section id="services" class="section">
-    <h2>Our Services</h2>
-    <div class="cards">
-      <a class="card" href="#" onclick="openService('Instagram Like');return false;">
-        <div class="icon">❤️</div><h3>Instagram Like</h3><p>Boost engagement on your posts.</p>
-      </a>
-      <a class="card" href="#" onclick="openService('Instagram Views');return false;">
-        <div class="icon">👁️</div><h3>Instagram Views</h3><p>Increase views on your content.</p>
-      </a>
-      <a class="card" href="#" onclick="openService('Instagram Followers');return false;">
-        <div class="icon">👤</div><h3>Instagram Followers</h3><p>Grow your Instagram audience.</p>
-      </a>
-      <a class="card" href="#order">
-        <div class="icon">📦</div><h3>Order Status</h3><p>Check your order status.</p>
-      </a>
-    </div>
-  </section>
-
-  <section id="order" class="section order">
-    <h2>Check Order Status</h2>
-    <p>Enter your order ID below.</p>
-    <div class="order-box">
-      <input id="orderId" type="text" placeholder="Enter Order ID">
-      <button class="btn primary" onclick="checkOrder()">Check Status</button>
-    </div>
-    <div id="status" class="status"></div>
-  </section>
-
-  <section class="section download">
-    <h2>Get GROWTH MASTER App</h2>
-    <p>Download the Android app and manage your services easily.</p>
-    <a id="apkButton" class="btn primary" href="#" onclick="downloadAPK();return false;">Download APK</a>
-    <small>Replace <b>growth-master.apk</b> with your actual APK file before publishing.</small>
-  </section>
-
-  <section class="section contact">
-    <h2>Contact & Support</h2>
-    <p>Need help? Contact GROWTH MASTER support.</p>
-    <a class="btn outline" href="mailto:your-email@example.com">Email Support</a>
-  </section>
-</main>
-
-<footer>
-  <p>© 2026 GROWTH MASTER. All rights reserved.</p>
-</footer>
-
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <button class="close" onclick="closeModal()">×</button>
-    <h2 id="modalTitle">Service</h2>
-    <p id="modalText">Service selected.</p>
-    <a class="btn primary" href="#contact" onclick="closeModal()">Contact Support</a>
-  </div>
+<section id="services">
+<h2>Our Services</h2>
+<div class="cards">
+<button onclick="openOrder('Instagram Like')">❤️<h3>Instagram Like</h3><p>Post/Reel link + quantity</p></button>
+<button onclick="openOrder('Instagram Views')">👁️<h3>Instagram Views</h3><p>Post/Reel link + quantity</p></button>
+<button onclick="openOrder('Instagram Followers')">👤<h3>Instagram Followers</h3><p>Username + profile link + quantity</p></button>
+<button onclick="document.querySelector('#order').scrollIntoView({behavior:'smooth'})">📦<h3>Order Status</h3><p>Check your Order ID</p></button>
 </div>
+</section>
+
+<section id="order">
+<h2>Place Order</h2>
+<p id="hint">Select a service above.</p>
+<form onsubmit="placeOrder(event)">
+<label>Service</label>
+<select id="service" onchange="updateForm()">
+<option>Instagram Like</option>
+<option>Instagram Views</option>
+<option>Instagram Followers</option>
+</select>
+
+<div id="linkBox">
+<label>Instagram Post / Reel Link</label>
+<input id="target" type="url" placeholder="https://www.instagram.com/..." required>
+</div>
+
+<div id="userBox" class="hide">
+<label>Instagram Username</label>
+<input id="user" type="text" placeholder="@username">
+</div>
+
+<div id="profileBox" class="hide">
+<label>Instagram Profile Link</label>
+<input id="profile" type="url" placeholder="https://www.instagram.com/username">
+</div>
+
+<div class="price-line">
+<span id="rateText">Price: ₹5 per 100 likes</span>
+</div>
+
+<label id="qlabel">Quantity of Likes</label>
+<input id="qty" type="number" min="1" step="1" placeholder="Enter quantity" required oninput="calculatePrice()">
+
+<div class="total">
+<span>Total Price</span>
+<strong id="totalPrice">₹0</strong>
+</div>
+
+<button class="btn full" type="submit">Submit Order</button>
+</form>
+
+<div id="result"></div>
+</section>
+
+<section class="status">
+<h2>Check Order Status</h2>
+<input id="oid" placeholder="Enter Order ID">
+<button class="btn" onclick="checkOrder()">Check Status</button>
+<div id="status"></div>
+</section>
+
+<section class="download">
+<h2>GROWTH MASTER App</h2>
+<p>Download the Android app.</p>
+<a class="btn" href="growth-master.apk">Download APK</a>
+<small>Upload your APK as <b>growth-master.apk</b>.</small>
+</section>
+
+<footer>© 2026 GROWTH MASTER</footer>
 <script src="script.js"></script>
 </body>
-</html>
+  </html>
