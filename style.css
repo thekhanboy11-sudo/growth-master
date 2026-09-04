@@ -1,16 +1,45 @@
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:#0b1020;color:#fff;font-family:Arial,sans-serif}
-header{padding:14px 20px;border-bottom:1px solid #293451;position:sticky;top:0;background:#0b1020;z-index:5}
-.brand{display:flex;gap:12px;align-items:center;max-width:1000px;margin:auto}.brand b,.biglogo{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#ff2d55,#8b5cf6,#06b6d4);font-weight:900}.brand b{width:45px;height:45px;border-radius:13px}.brand small{display:block;color:#aab4cf;font-size:11px}
-.hero{text-align:center;padding:65px 20px;background:radial-gradient(circle,#29376d,#0b1020 60%)}.biglogo{width:100px;height:100px;margin:auto;border-radius:28px;font-size:40px}.hero h1{font-size:40px}.hero p{color:#b8c1d6}
-.btn{display:inline-block;background:linear-gradient(135deg,#ff2d55,#8b5cf6);color:#fff;border:0;border-radius:11px;padding:13px 20px;font-weight:bold;text-decoration:none;cursor:pointer}
-section{max-width:1050px;margin:auto;padding:55px 20px}h2{text-align:center;font-size:29px}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}.cards button{background:#151d33;color:white;border:1px solid #303d5b;border-radius:18px;padding:25px;text-align:left;font-size:35px;cursor:pointer}.cards button:hover{border-color:#8b5cf6}.cards h3{font-size:19px}.cards p{font-size:14px;color:#aeb8cf}
-form{max-width:620px;margin:auto;background:#151d33;padding:25px;border-radius:18px;border:1px solid #303d5b}
-label{display:block;font-weight:bold;margin:14px 0 7px}input,select{width:100%;padding:13px;border-radius:10px;border:1px solid #3a4766;background:#0f172a;color:white}
-.hide{display:none}.price-line{margin-top:18px;padding:12px;border-radius:10px;background:#101a30;color:#bfc9df;text-align:center;font-weight:bold}
-.total{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding:15px;border-radius:12px;background:#202b47;font-size:18px}.total strong{font-size:24px}.full{width:100%;margin-top:18px}
-#result,#status{margin:18px auto;padding:15px;background:#17213a;border:1px solid #3a4766;border-radius:10px;max-width:620px}
-.status{text-align:center}.status>input{max-width:400px}.download{text-align:center;background:#11182b;border-radius:20px}.download small{display:block;color:#8490aa;margin-top:12px}
-footer{text-align:center;padding:25px;color:#8290aa;border-top:1px solid #293451}
-@media(max-width:750px){.cards{grid-template-columns:repeat(2,1fr)}}@media(max-width:500px){.cards{grid-template-columns:1fr}.hero h1{font-size:32px}.status>input{max-width:100%;margin-bottom:10px}}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#0b0f17;color:#f5f7fb;line-height:1.5}
+header{padding:16px 20px;background:#111827;border-bottom:1px solid #263043;position:sticky;top:0;z-index:5}
+.brand{display:flex;align-items:center;gap:12px;max-width:1050px;margin:auto}
+.brand>b,.biglogo{display:grid;place-items:center;font-weight:900;background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff}
+.brand>b{width:44px;height:44px;border-radius:12px}
+.brand strong{display:block}.brand small{color:#9ca3af}
+.hero{text-align:center;padding:70px 20px 55px;background:radial-gradient(circle at top,#1c1538 0,#0b0f17 60%)}
+.biglogo{width:90px;height:90px;border-radius:24px;margin:0 auto 20px;font-size:34px;box-shadow:0 15px 45px #0008}
+h1{font-size:42px;margin:10px 0}h2{font-size:28px;margin-top:0}
+.hero p{color:#b8c0cf}.btn{display:inline-block;border:0;border-radius:12px;padding:13px 20px;background:linear-gradient(135deg,#7c3aed,#ec4899);color:#fff;text-decoration:none;font-weight:700;cursor:pointer}
+section{max-width:1050px;margin:auto;padding:42px 20px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.cards button{background:#121a28;color:#fff;border:1px solid #2a3548;border-radius:16px;padding:22px 15px;cursor:pointer;text-align:center}
+.cards button:hover{border-color:#9b5cff;transform:translateY(-2px)}
+.cards h3{margin:10px 0 5px}.cards p{margin:0;color:#aab4c5;font-size:14px}
+form,.payment-box{max-width:650px;background:#111827;border:1px solid #273247;border-radius:18px;padding:22px}
+label{display:block;margin:15px 0 7px;font-weight:700}
+input,select{width:100%;padding:13px 14px;border-radius:10px;border:1px solid #354157;background:#0b1220;color:#fff;font-size:15px;outline:none}
+input:focus,select:focus{border-color:#a56bff}
+.price-line{margin-top:18px;color:#c8b8ff;font-weight:700}
+.total{display:flex;justify-content:space-between;align-items:center;background:#0b1220;border:1px solid #2c3850;border-radius:12px;padding:16px;margin:18px 0}
+.total strong,.pay-amount strong{font-size:25px;color:#fff}
+.full{width:100%;margin-top:4px}
+.hide{display:none!important}
+.payment-box{margin-top:20px}
+.payment-box h2{margin-bottom:8px}
+.pay-amount{background:#171f2e;border-radius:12px;padding:14px;text-align:center;margin:14px 0}
+.qr-wrap{display:flex;justify-content:center;align-items:center;min-height:260px;background:#fff;border-radius:14px;padding:15px;margin:15px 0}
+.qr-wrap img{display:block;max-width:260px;width:100%;height:auto}
+.qr-missing{width:260px;height:230px;border:3px dashed #777;color:#222;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;padding:20px}
+.qr-missing span{font-size:13px}
+.note{color:#9ca3af;font-size:12px}
+#result{margin-top:20px}
+.success{background:#10231a;border:1px solid #285e42;border-radius:16px;padding:20px}
+.success h3{margin-top:0;color:#6ee7a5}
+.details{display:grid;gap:8px}.details div{overflow-wrap:anywhere}
+.status input{max-width:500px;margin-bottom:10px}
+#status{margin-top:15px;color:#c7d2fe}
+.download{text-align:center;background:#101827}
+.download small{display:block;color:#8f9aae;margin-top:10px}
+footer{text-align:center;padding:25px;color:#7f8a9d;border-top:1px solid #202a3b}
+@media(max-width:800px){.cards{grid-template-columns:repeat(2,1fr)}h1{font-size:34px}}
+@media(max-width:500px){.cards{grid-template-columns:1fr}section{padding:32px 14px}.hero{padding:50px 15px}h1{font-size:30px}}
+  
